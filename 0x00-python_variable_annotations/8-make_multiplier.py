@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''multiply a float x by a multiplier'''
 from typing import Callable
 
