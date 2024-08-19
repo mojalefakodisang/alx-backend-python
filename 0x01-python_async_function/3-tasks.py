@@ -2,7 +2,7 @@
 """Module containing a asynchronous function"""
 
 
-import ayncio
+import asyncio
 
 
 wait_random = __import__('0-basic_async_syntax').wait_random
