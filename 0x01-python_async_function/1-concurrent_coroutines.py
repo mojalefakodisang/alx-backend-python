@@ -2,18 +2,14 @@
 """Module that contains an asynchronous function"""
 import asyncio
 
+
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def wait_n(n: int, max_delay: int) -> list[float]:
+async def wait_n(n: int, max_delay: int):
     """Asynchronous function"""
     values = []
-    for x in range(n):
-        values.append(await wait_random(max_delay))
-
-    for n in range(len(values)):
-        for m in range(0, len(values) - n - 1):
-            if values[m] > values[m + 1]:
-                values[m], values[m + 1] = values[m + 1], values[m]
-
-    return values
+    for i in range(n):
+        values.append(wait_random(max_delay))
+    delays = await asyncio.gather(*values)
+    return sorted(delays)
